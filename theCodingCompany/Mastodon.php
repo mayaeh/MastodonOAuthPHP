@@ -35,7 +35,7 @@ class Mastodon
     /**
      * Construct new Mastodon class
      */
-    public function __construct($domainname = "mastodon.social") {        
+    public function __construct($domainname = "taruntarun.net") {
         
         //Set the domain name to use
         $this->setMastodonDomain($domainname);

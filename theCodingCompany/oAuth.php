@@ -22,7 +22,7 @@ trait oAuth
      * Our API to use
      * @var string
      */
-    private $mastodon_api_url = "mastodon.social";
+    private $mastodon_api_url = "taruntarun.net";
     
     /**
      * Default headers for each request
@@ -48,10 +48,10 @@ trait oAuth
      * @var array
      */
     private $app_config = array(
-        "client_name"   => "MastoTweet",
+        "client_name"   => "FFXIV Forum BOT",
         "redirect_uris" => "urn:ietf:wg:oauth:2.0:oob",
         "scopes"        => "read write",
-        "website"       => "https://www.thecodingcompany.se"
+        "website"       => "https://taruntarun.net/@ffxiv_forum_bot"
     );
 
     /**
