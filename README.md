@@ -38,24 +38,66 @@ Contact me on #Mastodon https://mastodon.social/@digitalhuman
  */
 require_once("autoload.php");
 
+
+// Usage
+// 1. *1 のコメントアウトを外し実行し CLIENT_ID, CLIENT_SECRET, URL を控える
+// 2. 上記 URL をコピーしブラウザに貼り付け、利用したい Mastodon アカウントで
+// 	ログインし承認
+// 3. ブラウザに表示されたコードをコピーし *3 に貼り付け
+// 4. *1 をコメントアウトし *4 部を実行し、*5 に貼り付け
+// 5. postStatus() 等を実行
+
+
+// *3
+define ('MSTDN_CLIENT_ID', '');
+define ('MSTDN_CLIENT_SECRET', '');
+
+// *5
+define ('MSTDN_CLIENT_BEARER_TOKEN', '');
+
+
+
+
 $t = new \theCodingCompany\Mastodon();
 
 /**
  * Create a new App and get the client_id and client_secret
  */
+
+
+// *1
 $token_info = $t->createApp("MyCoolAppName", "http://www.internet.com");
-
-
-//Get the authorization url
 $auth_url = $t->getAuthUrl();
+var_dump($token_info);
+var_dump($auth_url);
+exit;
+
 /*
  * 1) Send the above URL '$auth_url' to the user. The need to authorize your App. 
  * 2) When they authorized your app, they will receive a token. The authorization token.
  * 3) Put the authorization token in the request below to exchange it for a bearer token.
  */
 
+
+
+//$recv = $t->postStatus('。。');
+//var_dump($recv);
+//exit;
+
+
 //Request the bearer token
-$token_info = $t->getAccessToken("7c47d0c636314a1dff21reryyy5edf91884856dc0f78148f848d475136");
+//$token_info = $t->getAccessToken("7c47d0c636314a1dff21reryyy5edf91884856dc0f78148f848d475136");
+
+
+// *4
+$code = '';	// copy from WebBrouser
+$token_info = $t->getAccessToken($code);
+var_dump($token_info);
+exit;
+
+
+
+
 
 /**
  * The above '$token_info' will now be an array with the info like below. (If successfull)
@@ -68,35 +110,5 @@ $token_info = $t->getAccessToken("7c47d0c636314a1dff21reryyy5edf91884856dc0f7814
     }
  */
 
-/**
- * Authenticate a user by username and password and receive the bearer token
- */
-$bearer_token = $t->authUser("vangelier@hotmail.com", "MySecretP@ssW0rd");
-
-/**
- * Get the userinfo by authentication
- */
-
-$user_info = $t->getUser("vangelier@hotmail.com", "MySecretP@ssW0rd");
-
-/**
- * Get user followers / following
- */
-$followers = $t->authenticate("vangelier@hotmail.com", "MySecretP@ssW0rd")
-                ->getFollowers();
-
-/**
- * Get user statusses
- */
-$statusses = $t->authenticate("vangelier@hotmail.com", "MySecretP@ssW0rd")
-                ->getStatuses();
-
-
-/**
-* Post status update
-*/
-
-$status = $t->authenticate("vangelier@hotmail.com", "MySecretP@ssW0rd")
-            ->postStatus("Text status update");
-
+?>
 ```
