@@ -37,10 +37,17 @@ trait oAuth
      * Holds our client_id and secret
      * @var array 
      */
+
+//	private $credentials = array(
+//	    "client_id"     => "",
+//	    "client_secret" => "",
+//	    "bearer"        => ""
+//	);
+
     private $credentials = array(
-        "client_id"     => "",
-        "client_secret" => "",
-        "bearer"        => ""
+        "client_id"     => MSTDN_CLIENT_ID,
+        "client_secret" => MSTDN_CLIENT_SECRET,
+        "bearer"        => MSTDN_CLIENT_BEARER_TOKEN
     );
     
     /**
