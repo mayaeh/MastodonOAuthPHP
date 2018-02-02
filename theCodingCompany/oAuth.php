@@ -58,7 +58,7 @@ trait oAuth
         "client_name"   => "FFXIV Forum BOT",
         "redirect_uris" => "urn:ietf:wg:oauth:2.0:oob",
         "scopes"        => "read write",
-        "website"       => "https://taruntarun.net/@ffxiv_forum_bot"
+        "website"       => "https://taruntarun.net/@ffxiv_news_bot"
     );
 
     /**
